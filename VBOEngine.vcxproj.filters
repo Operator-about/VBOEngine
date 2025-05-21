@@ -13,10 +13,78 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Файлы заголовков\Component">
+      <UniqueIdentifier>{98c8331c-d6a1-44e3-b4b1-a9cf7d42ea1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\ImGui">
+      <UniqueIdentifier>{8829f607-26a4-4279-a703-b8ff848e7f90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\ImGui">
+      <UniqueIdentifier>{97d09e39-ff03-4312-8567-b1fd23f2a4f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Source">
+      <UniqueIdentifier>{2c232027-ced8-458d-8685-2eb88fbea8d1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="VBOEngine.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Include\ImGui\imgui.cpp">
+      <Filter>Файлы ресурсов\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Include\glad\glad.c">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="Include\ImGui\imgui_demo.cpp">
+      <Filter>Файлы ресурсов\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Include\ImGui\imgui_draw.cpp">
+      <Filter>Файлы ресурсов\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Include\ImGui\imgui_impl_glfw.cpp">
+      <Filter>Файлы ресурсов\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Include\ImGui\imgui_tables.cpp">
+      <Filter>Файлы ресурсов\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Include\ImGui\imgui_widgets.cpp">
+      <Filter>Файлы ресурсов\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshSource.cpp">
+      <Filter>Файлы ресурсов\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelSource.cpp">
+      <Filter>Файлы ресурсов\Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include\ImGui\imconfig.h">
+      <Filter>Файлы заголовков\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\ImGui\imgui.h">
+      <Filter>Файлы заголовков\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\ImGui\imgui_impl_glfw.h">
+      <Filter>Файлы заголовков\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\ImGui\imgui_internal.h">
+      <Filter>Файлы заголовков\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\ImGui\imstb_rectpack.h">
+      <Filter>Файлы заголовков\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\ImGui\imstb_textedit.h">
+      <Filter>Файлы заголовков\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\ImGui\imstb_truetype.h">
+      <Filter>Файлы заголовков\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshComponent.h">
+      <Filter>Файлы заголовков\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelComponent.h">
+      <Filter>Файлы заголовков\Component</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
