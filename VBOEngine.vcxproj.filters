@@ -25,6 +25,9 @@
     <Filter Include="Файлы ресурсов\Source">
       <UniqueIdentifier>{2c232027-ced8-458d-8685-2eb88fbea8d1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Shader">
+      <UniqueIdentifier>{2e1b511b-17a6-43c5-a6e4-bcd162569532}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="VBOEngine.cpp">
@@ -57,6 +60,12 @@
     <ClCompile Include="ModelSource.cpp">
       <Filter>Файлы ресурсов\Source</Filter>
     </ClCompile>
+    <ClCompile Include="ShaderSource.cpp">
+      <Filter>Файлы ресурсов\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraSource.cpp">
+      <Filter>Файлы ресурсов\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\ImGui\imconfig.h">
@@ -86,5 +95,19 @@
     <ClInclude Include="ModelComponent.h">
       <Filter>Файлы заголовков\Component</Filter>
     </ClInclude>
+    <ClInclude Include="ShaderComponent.h">
+      <Filter>Файлы заголовков\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraComponent.h">
+      <Filter>Файлы заголовков\Component</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="VertShader.glsl">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="FragShader.glsl">
+      <Filter>Shader</Filter>
+    </None>
   </ItemGroup>
 </Project>

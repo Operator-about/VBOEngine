@@ -126,6 +126,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CameraSource.cpp" />
     <ClCompile Include="Include\glad\glad.c" />
     <ClCompile Include="Include\ImGui\imgui.cpp" />
     <ClCompile Include="Include\ImGui\imgui_demo.cpp" />
@@ -135,9 +136,11 @@
     <ClCompile Include="Include\ImGui\imgui_widgets.cpp" />
     <ClCompile Include="MeshSource.cpp" />
     <ClCompile Include="ModelSource.cpp" />
+    <ClCompile Include="ShaderSource.cpp" />
     <ClCompile Include="VBOEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CameraComponent.h" />
     <ClInclude Include="Include\ImGui\imconfig.h" />
     <ClInclude Include="Include\ImGui\imgui.h" />
     <ClInclude Include="Include\ImGui\imgui_impl_glfw.h" />
@@ -147,6 +150,11 @@
     <ClInclude Include="Include\ImGui\imstb_truetype.h" />
     <ClInclude Include="MeshComponent.h" />
     <ClInclude Include="ModelComponent.h" />
+    <ClInclude Include="ShaderComponent.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FragShader.glsl" />
+    <None Include="VertShader.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

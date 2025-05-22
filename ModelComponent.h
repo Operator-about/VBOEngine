@@ -5,6 +5,7 @@
 #include<string>
 #include<vector>
 #include"MeshComponent.h"
+#include"ShaderComponent.h"
 using namespace std;
 using namespace Assimp;
 
@@ -16,7 +17,7 @@ public:
 	{
 		Load(_Path);
 	};
-	void Draw();
+	void Draw(Shader& _Shader);
 private:
 
 	vector<Mesh> _MeshValue;

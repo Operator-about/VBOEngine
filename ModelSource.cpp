@@ -1,5 +1,14 @@
 #include"ModelComponent.h"
 
+
+void Model::Draw(Shader& _Shader) 
+{
+	for (int i = 0; i<_MeshValue.size();i++) 
+	{
+		_MeshValue[i].Draw(_Shader);
+	}
+}
+
 void Model::Load(string _Path) 
 {
 	Importer _Import;
