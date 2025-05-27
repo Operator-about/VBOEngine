@@ -9,6 +9,7 @@
 using namespace std;
 using namespace Assimp;
 
+//You can write or create new construction here, but! Don't destroy base construction function here. 
 
 class Model 
 {
@@ -20,7 +21,10 @@ public:
 	void Draw(Shader& _Shader);
 private:
 
+	//_MeshValue - This list model
 	vector<Mesh> _MeshValue;
+
+	//_DataModel - This list for data model
 	vector<MeshData> _DataModel;
 
 	void Load(string _Path);

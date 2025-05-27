@@ -7,6 +7,7 @@
 #include"ShaderComponent.h"
 using namespace glm;
 
+//You can write or create new construction here, but! Don't destroy base construction function here. 
 
 class Camera 
 {
@@ -22,11 +23,14 @@ public:
 	int _Hegth;
 
 	float _Speed = 10.1f;
-	float _Sent = 100.0f;
+	float _Sent = 50.0f;
 
 	Camera(int _Width, int _Hegth, vec3 _Position);
 
 	void CameraMatrix(float _FOV, float _NearPlane, float _FarPlane, Shader& _Shader);
 	void Input(GLFWwindow* _Window);
+
+private:
+	void UpdateVector();
 
 };

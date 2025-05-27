@@ -1,5 +1,9 @@
 #include "CameraComponent.h"
 
+//CameraSource.cpp - Engine component for add camera
+//If you need create owen function for camera, please write this here or in CameraComponent.h for add construction 
+
+
 Camera::Camera(int _Width, int _Hegth, vec3 _Position)
 {
 	this->_Width = _Width;
@@ -15,6 +19,7 @@ void Camera::CameraMatrix(float _FOV, float _NearPlane, float _FarPlane, Shader&
 	_View = lookAt(_Position, _Position + _Orient, _Up);
 	_Proj = perspective(radians(_FOV), (float)(_Width / _Hegth), _NearPlane, _FarPlane);
 
+	_Shader.UseShader();
 	_Shader.SetMatrix4("view", _View);
 	_Shader.SetMatrix4("proj", _Proj);
 }
@@ -96,4 +101,9 @@ void Camera::Input(GLFWwindow* _Window)
 		glfwSetInputMode(_Window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 		_Click = true;
 	}
+}
+
+void Camera::UpdateVector() 
+{
+
 }

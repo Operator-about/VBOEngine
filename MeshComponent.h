@@ -1,13 +1,14 @@
 #include <glad/glad.h>
-#include<glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 #include <GLFW/glfw3.h>
 #include <vector>
 #include "ShaderComponent.h"
 using namespace std;
 using namespace glm;
 
+//You can write or create new construction here, but! Don't destroy base construction function here. 
 
-
+//You can re-write this struct if you need more variable
 struct MeshData 
 {
 	vec3 _Vert;

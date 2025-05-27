@@ -1,6 +1,9 @@
 #include"ModelComponent.h"
 
 
+//ModelSource.cpp - Engine component for importing model in engine as Assimp
+//If you need create owen function for import model, please write this and in ModelComponent.h for add construction 
+
 void Model::Draw(Shader& _Shader) 
 {
 	for (int i = 0; i<_MeshValue.size();i++) 
@@ -34,34 +37,48 @@ Mesh Model::LoadModel(const aiMesh* _Mesh, const aiScene* _Scene)
 {
 	vector<MeshData> _LocalData;
 	vector<unsigned int> _Index;
-	for (int i = 0; i<_Mesh->mNumVertices;i++) 
+	cout << "if you get error at import model in engine, please see this log:" << endl;
+	cout << "if you not get error, please ignore this log." << endl;
+	try 
 	{
-		vec3 _Vector;
-		MeshData _Data;
-		_Vector.x = _Mesh->mVertices[i].x;
-		_Vector.y = _Mesh->mVertices[i].y;
-		_Vector.z = _Mesh->mVertices[i].z;
-		_Data._Vert = _Vector;
-		if (_Mesh->HasNormals()) 
+		for (int i = 0; i < _Mesh->mNumVertices; i++)
 		{
-			_Vector.x = _Mesh->mNormals[i].x;
-			_Vector.y = _Mesh->mNormals[i].y;
-			_Vector.z = _Mesh->mNormals[i].z;
-			_Data._Normal = _Vector;
+			vec3 _Vector;
+			MeshData _Data;
+			cout << "Load Vertex Mesh:" << i << endl;
+			_Vector.x = _Mesh->mVertices[i].x;
+			_Vector.y = _Mesh->mVertices[i].y;
+			_Vector.z = _Mesh->mVertices[i].z;
+			_Data._Vert = _Vector;
+			if (_Mesh->HasNormals())
+			{
+				cout << "Load Normal Mesh:" << i << endl;
+				_Vector.x = _Mesh->mNormals[i].x;
+				_Vector.y = _Mesh->mNormals[i].y;
+				_Vector.z = _Mesh->mNormals[i].z;
+				_Data._Normal = _Vector;
+			}
+
+			_DataModel.push_back(_Data);
 		}
 
-		_DataModel.push_back(_Data);
-	}
-
-	for (int i = 0; i<_Mesh->mNumFaces;i++) 
-	{
-		aiFace _Face = _Mesh->mFaces[i];
-		for (int j = 0; j<_Face.mNumIndices;j++) 
+		for (int i = 0; i < _Mesh->mNumFaces; i++)
 		{
-			_Index.push_back(_Face.mIndices[j]);
+			cout << "Load Index Model." << endl;
+			aiFace _Face = _Mesh->mFaces[i];
+			for (int j = 0; j < _Face.mNumIndices; j++)
+			{
+				_Index.push_back(_Face.mIndices[j]);
+			}
+
 		}
-
+		cout << "Import model successfully done! Model index:"<< _Mesh->mNumFaces << ". Model Vertex:" << _Mesh->mNumVertices << endl;
 	}
-
+	catch (exception _E) 
+	{
+		throw(errno);
+	}
+	
+	
 	return Mesh(_DataModel, _Index);
 }

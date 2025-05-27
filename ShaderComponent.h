@@ -13,6 +13,8 @@
 using namespace std;
 using namespace glm;
 
+//You can write or create new construction here, but! Don't destroy base construction function here. 
+
 string GetFile(string _File);
 
 class Shader 
@@ -22,7 +24,9 @@ public:
 	Shader(string _VertexShader, string _FragmentShader);
 	void UseShader();
 	void DeactivateShader();
-	void SetMatrix4(const char* _Name, mat4 _Parameter);
+	void SetMatrix4(const char* _Name, mat4 _Parameter) const;
+	void SetVector3(const char* _Name, vec3 _Parameter) const;
+	void ErrorCheckInShader(string _Type);
 };
 
 #endif

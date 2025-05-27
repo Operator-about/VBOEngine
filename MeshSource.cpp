@@ -1,5 +1,8 @@
 #include "MeshComponent.h"
 
+//MeshSource.cpp - Engine component for mesh
+//If you need create owen function for mesh, please write this here or in MeshComponent.h for add construction 
+
 Mesh::Mesh(vector<MeshData> _Vert, vector<unsigned int> _Index)
 {
 	this->_Vertex = _Vert;
@@ -35,8 +38,12 @@ void Mesh::Draw(Shader& _Shader)
 	_Shader.UseShader();
 
 	mat4 _Model = mat4(1.0f);
+	_Model = translate(_Model, vec3(0.0f, 0.0f, 0.0f));
+	_Model = scale(_Model, vec3(1.0f, 1.0f, 1.0f));
+	vec3 _Color = vec3(1.0f, 1.0f, 1.0f);
 
 	_Shader.SetMatrix4("model", _Model);
+	_Shader.SetVector3("Color", _Color);
 
 	glDrawElements(GL_TRIANGLES, _Index.size(), GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);

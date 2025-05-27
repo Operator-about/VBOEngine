@@ -1,5 +1,10 @@
 #include"ShaderComponent.h"
 
+//ShaderSource.cpp - Engine component for attach and compiler shader for VBOEngine
+//Strongly recommend: not to change or add anything here or in ShaderComponent.h
+//Strongly recommend: create new shader only in type file format: .glsl
+//But, if you need create owen function for shader, please write this here or in ShaderComponent.h for add construction 
+
 string GetFile(string _File)
 {
 	ifstream _In(_File, ios::binary);
@@ -27,14 +32,18 @@ Shader::Shader(string _VertexShader, string _FragmentShader)
 	GLuint _Vertex = glCreateShader(GL_VERTEX_SHADER);
 	glShaderSource(_Vertex, 1, &_VertShader, NULL);
 	glCompileShader(_Vertex);
+	ErrorCheckInShader("Shader");
 
 	GLuint _Frag = glCreateShader(GL_FRAGMENT_SHADER);
 	glShaderSource(_Frag, 1, &_FragShader, NULL);
 	glCompileShader(_Frag);
+	ErrorCheckInShader("Shader");
 
 	_Count = glCreateProgram();
 	glAttachShader(_Count, _Vertex);
 	glAttachShader(_Count, _Frag);
+	glLinkProgram(_Count);
+	ErrorCheckInShader("Program");
 };
 
 void Shader::UseShader() 
@@ -47,8 +56,45 @@ void Shader::DeactivateShader()
 	glDeleteProgram(_Count);
 }
 
-void Shader::SetMatrix4(const char* _Name, mat4 _Parameter)
+void Shader::SetMatrix4(const char* _Name, const mat4 _Parameter) const
 {
-	UseShader();
 	glUniformMatrix4fv(glGetUniformLocation(_Count, _Name), 1, GL_FALSE, value_ptr(_Parameter));
+}
+
+void Shader::SetVector3(const char* _Name, vec3 _Parameter) const 
+{
+	glUniform3fv(glGetUniformLocation(_Count, _Name), 1, value_ptr(_Parameter));
+}
+
+void Shader::ErrorCheckInShader(string _Type) 
+{
+	GLint _Succes;
+	GLchar _Log[1024];
+	if (_Type=="Shader")
+	{
+		glGetShaderiv(_Count, GL_COMPILE_STATUS, &_Succes);
+		if (!_Succes)
+		{
+			glGetShaderInfoLog(_Count, 1024, NULL, _Log);
+			cout << "Shader error:" << _Log << endl;
+		}
+		else
+		{
+			cout << "Shader not have error!" << endl;
+		}
+	}
+
+	if (_Type == "Program")
+	{
+		glGetProgramiv(_Count, GL_LINK_STATUS, &_Succes);
+		if (!_Succes)
+		{
+			glGetProgramInfoLog(_Count, 1024, NULL, _Log);
+			cout << "Program link error:" << _Log << endl;
+		}
+		else
+		{
+			cout << "Program link status: success" << endl;
+		}
+	}
 }
