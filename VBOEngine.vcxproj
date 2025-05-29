@@ -137,6 +137,7 @@
     <ClCompile Include="MeshSource.cpp" />
     <ClCompile Include="ModelSource.cpp" />
     <ClCompile Include="ShaderSource.cpp" />
+    <ClCompile Include="StbSource.cpp" />
     <ClCompile Include="VBOEngine.cpp" />
   </ItemGroup>
   <ItemGroup>

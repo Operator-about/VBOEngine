@@ -9,6 +9,11 @@ using namespace glm;
 
 //You can write or create new construction here, but! Don't destroy base construction function here. 
 
+//---------------------------------------//
+
+//Вы можете написать или создать новую конструкцию здесь, но! Не удаляйте здесь базовые функции конструкций.
+
+
 class Camera 
 {
 

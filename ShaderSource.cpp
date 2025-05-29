@@ -5,6 +5,13 @@
 //Strongly recommend: create new shader only in type file format: .glsl
 //But, if you need create owen function for shader, please write this here or in ShaderComponent.h for add construction 
 
+//---------------------------------------------------//
+
+//ShaderSource.cpp - компонент движка для присоединения и компиляции шейдеров для VBOEngine
+//Настоятельно рекомендую: не менять и не добавлять ничего здесь или в ShaderComponent.h
+//Настоятельно рекомендую: создавать новые шейдеры только в формате файла типа: .glsl
+//Но если вам нужно создать собственную функцию для шейдера, пожалуйста, напишите это здесь или в ShaderComponent.h для добавления конструкций
+
 string GetFile(string _File)
 {
 	ifstream _In(_File, ios::binary);
@@ -64,6 +71,16 @@ void Shader::SetMatrix4(const char* _Name, const mat4 _Parameter) const
 void Shader::SetVector3(const char* _Name, vec3 _Parameter) const 
 {
 	glUniform3fv(glGetUniformLocation(_Count, _Name), 1, value_ptr(_Parameter));
+}
+
+void Shader::SetInt(const char* _Name, int _Parameter) const 
+{
+	glUniform1i(glGetUniformLocation(_Count, _Name), _Parameter);
+}
+
+void Shader::SetBool(const char* _Name, bool _Parameter) const 
+{
+	glUniform1i(glGetUniformLocation(_Count, _Name), (int)_Parameter);
 }
 
 void Shader::ErrorCheckInShader(string _Type) 

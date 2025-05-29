@@ -1,7 +1,12 @@
 #include "CameraComponent.h"
 
 //CameraSource.cpp - Engine component for add camera
-//If you need create owen function for camera, please write this here or in CameraComponent.h for add construction 
+//If you need create own function for camera, please write this here or in CameraComponent.h for add construction 
+
+//-----------------------------------------------------//
+
+//CameraSource.cpp - Компонент движка для добавления камеры
+//Если вам нужно создать собственную функцию для камеры, пожалуйста, напишите это здесь или в CameraComponent.h для добавления конструкций
 
 
 Camera::Camera(int _Width, int _Hegth, vec3 _Position)

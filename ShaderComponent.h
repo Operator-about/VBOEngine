@@ -15,6 +15,10 @@ using namespace glm;
 
 //You can write or create new construction here, but! Don't destroy base construction function here. 
 
+//---------------------------------------//
+
+//Вы можете написать или создать новую конструкцию здесь, но! Не удаляйте здесь базовые функции конструкций.
+
 string GetFile(string _File);
 
 class Shader 
@@ -26,6 +30,8 @@ public:
 	void DeactivateShader();
 	void SetMatrix4(const char* _Name, mat4 _Parameter) const;
 	void SetVector3(const char* _Name, vec3 _Parameter) const;
+	void SetInt(const char* _Name, int _Parameter) const;
+	void SetBool(const char* _Name, bool _Parameter) const;
 	void ErrorCheckInShader(string _Type);
 };
 

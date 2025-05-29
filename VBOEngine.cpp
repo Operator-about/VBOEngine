@@ -4,11 +4,22 @@
 #include "ShaderComponent.h"
 #include "CameraComponent.h"
 
-//VBOEngine - This game engine with open source code. You can create or write a new function for engine
+//VBOEngine - This game engine with open source code and current under active work. You can create or write a new function for engine and, you can create new components for VBOEngine
 //Engine made by Russian developer: Operator.
 //Have a good and luck development!
 
+//Thanks you for download and choice russian game engine VBOEngine.
 //#MakeRussiaGamesGreat
+
+//---------------------------------------------------------------//
+
+//VBOEngine - Это игровой движок с открытым исходным кодом, который в настоящее время находится в активной разработке. Вы можете создать или написать новую функцию для движка, а также вы можете создать новые компоненты для VBOEngine
+//Движок создан российским разработчиком: Operator.
+//Удачной разработки!
+
+//Спасибо за скачивание и выбор российского игрового движка VBOEngine.
+//#MakeRussiaGamesGreat
+
 
 int main() 
 {

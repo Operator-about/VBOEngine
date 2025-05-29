@@ -66,6 +66,9 @@
     <ClCompile Include="CameraSource.cpp">
       <Filter>Файлы ресурсов\Source</Filter>
     </ClCompile>
+    <ClCompile Include="StbSource.cpp">
+      <Filter>Файлы ресурсов\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\ImGui\imconfig.h">

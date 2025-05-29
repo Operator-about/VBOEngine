@@ -2,7 +2,12 @@
 
 
 //ModelSource.cpp - Engine component for importing model in engine as Assimp
-//If you need create owen function for import model, please write this and in ModelComponent.h for add construction 
+//If you need create own function for import model, please write this here or in ModelComponent.h for add construction 
+
+//-------------------------------------------------//
+
+//ModelSource.cpp - Компонент движка для импорта модели в движок как Assimp
+//Если вам нужно создать собственную функцию для импорта модели, пожалуйста, напишите это здесь или в ModelComponent.h для добавления конструкций
 
 void Model::Draw(Shader& _Shader) 
 {
@@ -57,6 +62,20 @@ Mesh Model::LoadModel(const aiMesh* _Mesh, const aiScene* _Scene)
 				_Vector.y = _Mesh->mNormals[i].y;
 				_Vector.z = _Mesh->mNormals[i].z;
 				_Data._Normal = _Vector;
+			}
+			if (_Mesh->mTextureCoords[0])
+			{
+				vec2 _Vec;
+				_Vec.x = _Mesh->mTextureCoords[0][i].x;
+				_Vec.y = _Mesh->mTextureCoords[0][i].y;
+				_Data._TexCoord = _Vec;
+			}
+			else 
+			{
+				vec2 _Vec;
+				_Vec.x = 0.0f;
+				_Vec.y = 0.0f;
+				_Data._TexCoord = _Vec;
 			}
 
 			_DataModel.push_back(_Data);
