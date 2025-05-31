@@ -4,8 +4,8 @@
 #include<glm/gtc/matrix_transform.hpp>
 #include<string>
 #include<vector>
-#include"MeshComponent.h"
-#include"ShaderComponent.h"
+#include<MeshComponent.h>
+#include<ShaderComponent.h>
 using namespace std;
 using namespace Assimp;
 

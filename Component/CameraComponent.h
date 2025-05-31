@@ -4,7 +4,7 @@
 #include<glm/gtc/matrix_transform.hpp>
 #include<glm/gtx/rotate_vector.hpp>
 #include<glm/gtx/vector_angle.hpp>
-#include"ShaderComponent.h"
+#include<ShaderComponent.h>
 using namespace glm;
 
 //You can write or create new construction here, but! Don't destroy base construction function here. 
@@ -29,13 +29,15 @@ public:
 
 	float _Speed = 10.1f;
 	float _Sent = 50.0f;
+	float _FOV;
+	float _NearPlane, _FarPlane;
 
 	Camera(int _Width, int _Hegth, vec3 _Position);
 
 	void CameraMatrix(float _FOV, float _NearPlane, float _FarPlane, Shader& _Shader);
+	mat4 GetProjection();
+	mat4 GetView();
 	void Input(GLFWwindow* _Window);
 
-private:
-	void UpdateVector();
 
 };

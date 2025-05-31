@@ -1,4 +1,4 @@
-#include"ShaderComponent.h"
+#include<ShaderComponent.h>
 
 //ShaderSource.cpp - Engine component for attach and compiler shader for VBOEngine
 //Strongly recommend: not to change or add anything here or in ShaderComponent.h

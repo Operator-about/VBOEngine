@@ -1,4 +1,4 @@
-#include "MeshComponent.h"
+#include <MeshComponent.h>
 
 //MeshSource.cpp - Engine component for mesh
 //If you need create own function for mesh, please write this here or in MeshComponent.h for add construction 

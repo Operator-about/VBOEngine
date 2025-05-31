@@ -3,7 +3,7 @@
 #include <GLFW/glfw3.h>
 #include <vector>
 #include <stb/stb_image.h>
-#include "ShaderComponent.h"
+#include <ShaderComponent.h>
 using namespace std;
 using namespace glm;
 
