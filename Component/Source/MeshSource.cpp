@@ -66,23 +66,7 @@ void Mesh::AddMesh()
 	glVertexAttribPointer(2, 2, GL_FLOAT, false, sizeof(MeshData), (void*)offsetof(MeshData, _TexCoord));
 
 	
-	//Texture load
-	int _Width, _Height, _Channel;
-	unsigned char* _Data = stbi_load("You're texture|.png|.jpg", &_Width, &_Height, &_Channel, 0);
-
-	glGenTextures(1, &_CountTexture);
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, _CountTexture);
-
-	glTextureParameteri(_CountTexture, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTextureParameteri(_CountTexture, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	glTextureParameteri(_CountTexture, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTextureParameteri(_CountTexture, GL_TEXTURE_WRAP_T, GL_REPEAT);
-
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, _Width, _Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, _Data);
-	glGenerateMipmap(GL_TEXTURE_2D);
-
-	stbi_image_free(_Data);
+	
 	
 	
 	

@@ -3,14 +3,14 @@
 //ShaderSource.cpp - Engine component for attach and compiler shader for VBOEngine
 //Strongly recommend: not to change or add anything here or in ShaderComponent.h
 //Strongly recommend: create new shader only in type file format: .glsl
-//But, if you need create owen function for shader, please write this here or in ShaderComponent.h for add construction 
+//But, if you need create own function for shader, please write this here or in ShaderComponent.h for add construction 
 
 //---------------------------------------------------//
 
 //ShaderSource.cpp - компонент движка для присоединения и компиляции шейдеров для VBOEngine
 //Настоятельно рекомендую: не менять и не добавлять ничего здесь или в ShaderComponent.h
 //Настоятельно рекомендую: создавать новые шейдеры только в формате файла типа: .glsl
-//Но если вам нужно создать собственную функцию для шейдера, пожалуйста, напишите это здесь или в ShaderComponent.h для добавления конструкций
+//Но если вам нужно создать собственную функцию, пожалуйста, напишите это здесь или в ShaderComponent.h для добавления конструкций
 
 string GetFile(string _File)
 {

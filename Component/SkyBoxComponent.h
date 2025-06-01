@@ -1,3 +1,6 @@
+#ifndef SKYBOX_H
+#define SKYBOX_H
+
 #include<glad/glad.h>
 #include<GLFW/glfw3.h>
 #include<stb/stb_image.h>
@@ -7,19 +10,23 @@
 #include<CameraComponent.h>
 
 
-class SkyBox 
+class SkyBox
 {
 public:
-	unsigned int _Count;
-	SkyBox(vector<const char*> _Texture);
-	void Draw(Shader& _Shader, Camera& _Camera);
+    
+    unsigned int _Count;
+    SkyBox(vector<const char*> _Texture);
+    void Draw(Shader& _Shader, Camera& _Camera);
+    
 private:
-	void AddSkyBox(vector<const char*> _SkyTexture);
-	unsigned int _VAO, _VBO;
 
-	vector<float> _Vertex = 
-    { 
-        
+    void AddSkyBox(vector<const char*> _Texture);
+    unsigned int _VAO, _VBO;
+    
+
+    vector<float> _Vertex =
+    {
+
         -1.0f,  1.0f, -1.0f,
         -1.0f, -1.0f, -1.0f,
          1.0f, -1.0f, -1.0f,
@@ -60,6 +67,11 @@ private:
          1.0f, -1.0f, -1.0f,
          1.0f, -1.0f, -1.0f,
         -1.0f, -1.0f,  1.0f,
-         1.0f, -1.0f,  1.0f 
+         1.0f, -1.0f,  1.0f
     };
 };
+
+#endif 
+
+
+
