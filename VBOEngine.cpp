@@ -145,7 +145,7 @@ int main()
 		_Info.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO; //Set type info vk
 		_Info.pApplicationInfo = &_App; //Set application info for vk
 		_Info.enabledExtensionCount = static_cast<uint32_t>(_Ex.size()); //Count global extension be must setup
-		_Info.ppEnabledExtensionNames = _Ex.data(); //Names extension muts setup
+		_Info.ppEnabledExtensionNames = _Ex.data(); //Names extension must setup
 		
 		//Set output instance variable
 		VkInstance _Instance = {};
@@ -153,19 +153,14 @@ int main()
 		//Create vulkan
 		vkCreateInstance(&_Info, nullptr, &_Instance);
 
-		//Add variable for count physical ddevices
+		//Add variable for count physical devices
 		uint32_t _PCount;
 		vkEnumeratePhysicalDevices(_Instance, &_PCount, nullptr); //Set _PCount value GPU
 		vector<VkPhysicalDevice> _PDevice(_PCount); //Set vector for count GPU
 		vkEnumeratePhysicalDevices(_Instance, &_PCount, _PDevice.data()); //Set _PDevice count of GPU
 
-		//Properties GPU(Name, ID...)
-		VkPhysicalDeviceProperties _PDeviceProp;
-		for (const VkPhysicalDevice& _Device : _PDevice) //count all device in vector: _PDevice
-		{
-			vkGetPhysicalDeviceProperties(_Device, &_PDeviceProp); //Get properties GPU
-			cout << "Name GPU:" << _PDeviceProp.deviceName << ". Vendor name:" << _PDeviceProp.vendorID << endl;
-		}
+		VkPhysicalDevice _PDeviceProp = _PDevice.data()[0];
+		
 
 		while (!glfwWindowShouldClose(_Window)) {
 			glfwPollEvents();

@@ -84,6 +84,9 @@
     <ClCompile Include="Component\Source\ModelSource.cpp">
       <Filter>Файлы ресурсов\Source</Filter>
     </ClCompile>
+    <ClCompile Include="Include\ImGui\imgui_impl_vulkan.cpp">
+      <Filter>Файлы ресурсов\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\ImGui\imconfig.h">
@@ -121,6 +124,9 @@
     </ClInclude>
     <ClInclude Include="Component\CameraComponent.h">
       <Filter>Файлы заголовков\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\ImGui\imgui_impl_vulkan.h">
+      <Filter>Файлы заголовков\ImGui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
