@@ -125,16 +125,47 @@ int main()
 
 		cout << "Welcome to VBOEngine" << endl;
 		_Window = glfwCreateWindow(800, 800, "VBOEngine", NULL, NULL);
+		
+		//Get required instance extension be must for vulkan
+		//THIS VARY IMPORTANT!!!
+		uint32_t _ExCount = 0; //create extension variable count
+		const char** _ExName = glfwGetRequiredInstanceExtensions(&_ExCount); //Get REQUIRED extensions for vulkan
+		vector<const char*> _Ex(_ExName, _ExCount + _ExName); //Set vector for extensions
 
-		if (!_Window)
+		//Set application vk info:
+		VkApplicationInfo _App = {};
+		_App.pEngineName = nullptr; //Set use engine
+		_App.engineVersion = VK_MAKE_VERSION(1, 0, 0); //Set engine version
+		_App.pApplicationName = "VBOEngine"; //Set app name
+		_App.applicationVersion = VK_MAKE_VERSION(0, 0, 1); //Set app version
+		_App.apiVersion = VK_VERSION_1_4; //Set API Version
+
+		//Set info for vk
+		VkInstanceCreateInfo _Info = {};
+		_Info.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO; //Set type info vk
+		_Info.pApplicationInfo = &_App; //Set application info for vk
+		_Info.enabledExtensionCount = static_cast<uint32_t>(_Ex.size()); //Count global extension be must setup
+		_Info.ppEnabledExtensionNames = _Ex.data(); //Names extension muts setup
+		
+		//Set output instance variable
+		VkInstance _Instance = {};
+
+		//Create vulkan
+		vkCreateInstance(&_Info, nullptr, &_Instance);
+
+		//Add variable for count physical ddevices
+		uint32_t _PCount;
+		vkEnumeratePhysicalDevices(_Instance, &_PCount, nullptr); //Set _PCount value GPU
+		vector<VkPhysicalDevice> _PDevice(_PCount); //Set vector for count GPU
+		vkEnumeratePhysicalDevices(_Instance, &_PCount, _PDevice.data()); //Set _PDevice count of GPU
+
+		//Properties GPU(Name, ID...)
+		VkPhysicalDeviceProperties _PDeviceProp;
+		for (const VkPhysicalDevice& _Device : _PDevice) //count all device in vector: _PDevice
 		{
-			glfwTerminate();
-			return -1;
+			vkGetPhysicalDeviceProperties(_Device, &_PDeviceProp); //Get properties GPU
+			cout << "Name GPU:" << _PDeviceProp.deviceName << ". Vendor name:" << _PDeviceProp.vendorID << endl;
 		}
-
-		uint32_t _Count = 0;
-		vkEnumerateInstanceExtensionProperties(nullptr, &_Count, nullptr);
-
 
 		while (!glfwWindowShouldClose(_Window)) {
 			glfwPollEvents();
