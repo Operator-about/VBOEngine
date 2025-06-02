@@ -55,7 +55,7 @@ void SkyBox::Draw(Shader& _Shader, Camera& _Camera)
 	glBindTexture(GL_TEXTURE_CUBE_MAP, _Count);	
 	_Shader.SetInt("sky", 0);
 
-	glDrawElements(GL_TRIANGLES, 8, GL_UNSIGNED_INT, 0);
+	glDrawArrays(GL_TRIANGLES, 0, 36);
 	glBindVertexArray(0);
 	glDepthFunc(GL_LESS);
 }

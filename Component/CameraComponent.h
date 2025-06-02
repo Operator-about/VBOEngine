@@ -1,3 +1,6 @@
+#ifndef CAMERA_H
+#define CAMERA_H
+
 #include<glad/glad.h>
 #include<GLFW/glfw3.h>
 #include<glm/glm.hpp>
@@ -14,7 +17,7 @@ using namespace glm;
 //Вы можете написать или создать новую конструкцию здесь, но! Не удаляйте здесь базовые функции конструкций.
 
 
-class Camera 
+class Camera
 {
 
 public:
@@ -41,3 +44,6 @@ public:
 
 
 };
+
+#endif
+
