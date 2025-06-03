@@ -132,7 +132,7 @@
       <Filter>Файлы заголовков\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="Component\ConfigComponent.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
