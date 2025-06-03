@@ -84,11 +84,11 @@
     <ClCompile Include="Component\Source\ModelSource.cpp">
       <Filter>Файлы ресурсов\Source</Filter>
     </ClCompile>
-    <ClCompile Include="Include\ImGui\imgui_impl_vulkan.cpp">
-      <Filter>Файлы ресурсов\Source</Filter>
-    </ClCompile>
     <ClCompile Include="Component\Source\ConfigSource.cpp">
       <Filter>Файлы ресурсов\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Include\ImGui\imgui_impl_vulkan.cpp">
+      <Filter>Файлы ресурсов\ImGui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
