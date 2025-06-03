@@ -37,5 +37,6 @@ public:
 
 private:
 	unsigned int _VAO, _VBO, _EBO;
-	void AddMesh();
+	void SetMesh();
+	void VkSetMesh();
 };

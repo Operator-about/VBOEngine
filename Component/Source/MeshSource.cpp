@@ -13,7 +13,7 @@ Mesh::Mesh(vector<MeshData> _Vert, vector<unsigned int> _Index)
 	this->_Vertex = _Vert;
 	this->_Index = _Index;
 
-	AddMesh();
+	SetMesh();
 }
 
 
@@ -43,7 +43,7 @@ void Mesh::Draw(Shader& _Shader)
 	glBindVertexArray(0);
 }
 
-void Mesh::AddMesh() 
+void Mesh::SetMesh() 
 {
 	glGenVertexArrays(1, &_VAO);
 	glGenBuffers(1, &_VBO);

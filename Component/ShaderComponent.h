@@ -26,6 +26,7 @@ class Shader
 public:
 	unsigned int _Count;
 	Shader(string _VertexShader, string _FragmentShader);
+	void VkShader(string _VertexShader, string _FragmentShader);
 	void UseShader();
 	void DeactivateShader();
 	void SetMatrix4(const char* _Name, mat4 _Parameter) const;

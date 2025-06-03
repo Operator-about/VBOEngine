@@ -208,7 +208,7 @@ int main()
 
 		VkPhysicalDeviceFeatures _DeviceFeatures = {};
 		vector<VkDeviceQueueCreateInfo> _QueueInfos; //Queue list
-		set<uint32_t> _Family = {_GraphicsQueueFamIndex, _PresentQueueFamIndex};
+		set<uint32_t> _Family = {_GraphicsQueueFamIndex, _PresentQueueFamIndex}; //Set streams
 
 		for (const uint32_t _AllQueue : _Family) 
 		{
@@ -234,6 +234,32 @@ int main()
 
 		VkDevice _Device = {};
 		vkCreateDevice(_PDeviceProp, &_DeviceInfo, nullptr, &_Device);
+
+
+		VkSwapchainKHR _Swap;
+		VkSwapchainCreateInfoKHR _SwapInfo = {};
+		_SwapInfo.sType = VK_STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR;
+		_SwapInfo.surface = _Surface; //Set surface
+		_SwapInfo.compositeAlpha = VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR; //Alpha layer
+		_SwapInfo.clipped = VK_TRUE; //paint object or not paint if not see
+		_SwapInfo.oldSwapchain = VK_NULL_HANDLE;
+		_SwapInfo.imageUsage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT; //Set usage image mode
+		_SwapInfo.imageArrayLayers = 1; //Set layer image for render aka 2D
+		
+		//Set sharing mode and stream queue for _SwapInfo
+		uint32_t  _QueueFamilyIndex[] = { _GraphicsQueueFamIndex, _PresentQueueFamIndex }; //List all streams
+		if (_GraphicsQueueFamIndex != _PresentQueueFamIndex)
+		{
+			_SwapInfo.imageSharingMode = VK_SHARING_MODE_CONCURRENT; //Image can sharing data
+			_SwapInfo.queueFamilyIndexCount = 2; //Count stream in queue
+			_SwapInfo.pQueueFamilyIndices = _QueueFamilyIndex;
+		}
+		else 
+		{
+			_SwapInfo.imageSharingMode = VK_SHARING_MODE_EXCLUSIVE; //Image not can sharing data
+		}
+
+		vkCreateSwapchainKHR(_Device, &_SwapInfo, nullptr, &_Swap);
 
 		while (!glfwWindowShouldClose(_Window)) {
 			glfwPollEvents();
