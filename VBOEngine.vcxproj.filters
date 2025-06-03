@@ -87,6 +87,9 @@
     <ClCompile Include="Include\ImGui\imgui_impl_vulkan.cpp">
       <Filter>Файлы ресурсов\Source</Filter>
     </ClCompile>
+    <ClCompile Include="Component\Source\ConfigSource.cpp">
+      <Filter>Файлы ресурсов\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\ImGui\imconfig.h">
@@ -127,6 +130,9 @@
     </ClInclude>
     <ClInclude Include="Include\ImGui\imgui_impl_vulkan.h">
       <Filter>Файлы заголовков\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\ConfigComponent.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
