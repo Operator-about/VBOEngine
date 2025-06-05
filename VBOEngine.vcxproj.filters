@@ -34,6 +34,12 @@
     <Filter Include="Shader\SkyBoxShader">
       <UniqueIdentifier>{ddd08187-cbc6-4932-8fbd-3d18ca7ffdb7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Texture">
+      <UniqueIdentifier>{c5e300ec-3b33-4775-8fb5-c3b29689e175}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Texture\SkyBox">
+      <UniqueIdentifier>{17e6d42c-434c-4469-aa38-bf5b9ef2c7ca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="VBOEngine.cpp">
@@ -130,5 +136,10 @@
     <None Include="Shader\SkyBoxShader\SkyVertShader.glsl">
       <Filter>Shader\SkyBoxShader</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Texture\SkyBox\Sky.jpg">
+      <Filter>Texture\SkyBox</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -36,9 +36,6 @@ void Mesh::Draw(Shader& _Shader)
 	//You can switch bool parameter: true or false
 	_Shader.SetBool("TextureValid", false);
 
-	_Shader.SetInt("Texture", 0);
-
-	glActiveTexture(GL_TEXTURE0);
 	glDrawElements(GL_TRIANGLES, _Index.size(), GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
 }

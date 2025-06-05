@@ -57,12 +57,14 @@ int main()
 	//Загрузка модели
 	Model _Model = Model("Model/Cube.fbx");
 
-	vector<const char*> _SkyTexture = {"","","","","",""};
+	vector<const char*> _SkyTexture = {"Texture/SkyBox/Sky.jpg","Texture/SkyBox/Sky.jpg","Texture/SkyBox/Sky.jpg"
+		,"Texture/SkyBox/Sky.jpg","Texture/SkyBox/Sky.jpg","Texture/SkyBox/Sky.jpg"};
 	SkyBox _SkyBox = SkyBox(_SkyTexture);
 
 	glEnable(GL_DEPTH_TEST);
 	Camera _Camera = Camera(800, 800, vec3(0.0f, 0.0f, 0.0f));
 	_Shader.UseShader();
+	_SkyShader.UseShader();
 
 	while (!glfwWindowShouldClose(_Window)) 
 	{
@@ -85,9 +87,9 @@ int main()
 
 		_Camera.CameraMatrix(45.0f, 0.1f, 100.0f, _Shader);
 		
-		
-		_Model.Draw(_Shader);
 		_SkyBox.Draw(_SkyShader, _Camera);
+		_Model.Draw(_Shader);
+		
 
 		glfwSwapBuffers(_Window);
 

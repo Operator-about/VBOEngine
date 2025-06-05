@@ -161,6 +161,9 @@
     <None Include="Shader\SkyBoxShader\SkyFragShader.glsl" />
     <None Include="Shader\SkyBoxShader\SkyVertShader.glsl" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Texture\SkyBox\Sky.jpg" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

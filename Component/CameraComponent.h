@@ -30,7 +30,7 @@ public:
 	int _Width;
 	int _Hegth;
 
-	float _Speed = 10.1f;
+	float _Speed = 0.2f;
 	float _Sent = 50.0f;
 	float _FOV;
 	float _NearPlane, _FarPlane;
